@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Main
+{
+      public static void main(String[] args)
+      {
+            int sum = 0;
+            int row1, col1;
+            int arr1[][];
+            int row2, col2;
+            int arr2[][];
+            int mul[][];
+            
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter the number of rows for first Matrix: ");
+            row1 = sc.nextInt();
+            System.out.print("Enter the number of coloumns for first Matrix: ");
+            col1 = sc.nextInt();
+            arr1 = new int[row1][col1];
+            
+            System.out.print("Enter the number of rows for second Matrix: ");
+            row2 = sc.nextInt();
+            System.out.print("Enter the number of coloumns for second Matrix: ");
+            col2 = sc.nextInt();
+            arr2 = new int[row2][col2];
+            
+            mul = new int[row1][col2];
+            
+            if(col1==row2){
+                  System.out.print("Enter the elements for first Matrix: ");
+                  for(int i = 0; i<row1; i++)
+                  {
+                        for (int j=0; j<col1; j++){
+                              arr1[i][j] = sc.nextInt();
+                        }
+                  }
+                  System.out.print("Enter the elements for second Matrix: ");
+                  for(int i = 0; i<row2; i++)
+                  {
+                        for (int j=0; j<col2; j++){
+                              arr2[i][j] = sc.nextInt();
+                        }
+                  }
+                  System.out.println("The Multiplication of the Matrices is: ");
+                  for(int i = 0; i<row1; i++)
+                  {
+                        for (int j=0; j<col2; j++){
+                              for(int k = 0; k<row2; k++){
+                                    sum+=arr1[i][k]*arr2[k][j];
+                                    mul[i][j] = sum;
+                              }
+                        }
+                  }
+                  for(int i = 0; i<row1; i++){
+                        for(int j = 0; j<col2; j++){
+                              System.out.print(mul[i][j]+"  ");
+                        }
+                        System.out.println();
+                  }
+            }
+            else if(col2==row1)
+                  System.out.println("Interchanging of the Matrices can give result\n Wanna try!!!");
+      
+            else
+                  System.out.println("Multiplication not possible:(");
+      }
+}
